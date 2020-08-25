@@ -1,7 +1,16 @@
 {
-  "name": "learn-starter",
-  "version": "0.1.0",
-  "private": true,
+  "name": "kylep.codes",
+  "version": "0.0.0",
+  "author": {
+    "name": "Kyle Peeler",
+    "email": "kylepeeler@hey.com",
+    "url": "https://kylep.codes"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylepeeler/kylep.codes.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
