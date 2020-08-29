@@ -49,9 +49,9 @@ const Container = ({ children }: { children: React.ReactNode }) => {
           onChange={toggleColorMode}
         />
         <Box>
-          <NextLink href="/dashboard" passHref>
+          <NextLink href="/" passHref>
             <Button as="a" variant="ghost" p={[1, 4]}>
-              Dashboard
+              Home
             </Button>
           </NextLink>
           <NextLink href="/blog" passHref>
@@ -62,11 +62,6 @@ const Container = ({ children }: { children: React.ReactNode }) => {
           <NextLink href="/about" passHref>
             <Button as="a" variant="ghost" p={[1, 4]}>
               About
-            </Button>
-          </NextLink>
-          <NextLink href="/" passHref>
-            <Button as="a" variant="ghost" p={[1, 4]}>
-              Home
             </Button>
           </NextLink>
         </Box>
