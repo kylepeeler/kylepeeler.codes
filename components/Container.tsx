@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Box, Button, Flex, IconButton, useColorMode } from '@chakra-ui/core';
+import { Box, Button, Flex, useColorMode } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 import { DarkModeToggle } from './DarkModeToggle';
 

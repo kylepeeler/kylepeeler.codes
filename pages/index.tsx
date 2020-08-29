@@ -6,8 +6,15 @@ import Container from '../components/Container';
 import { siteTitle } from '../components/Layout';
 import { getSortedPostsData } from '../lib/posts';
 import utilStyles from '../styles/utils.module.css';
-import { Stack, Flex, Heading, Text, useColorMode } from '@chakra-ui/core';
-import { DarkModeToggle } from '../components/DarkModeToggle';
+import {
+  Stack,
+  Flex,
+  Heading,
+  Text,
+  useColorMode,
+  Alert,
+  AlertIcon
+} from '@chakra-ui/core';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -37,7 +44,23 @@ export default function Home({
   return (
     <Container>
       <Head>
-        <title>{siteTitle}</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet"
+        ></link>
+        <meta
+          name="description"
+          content="The personal blog and portfolio of Kyle Peeler"
+        />
+        <meta
+          property="og:image"
+          content={`https://og-image.now.sh/${encodeURI(
+            siteTitle
+          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+        />
+        <meta name="og:title" content={siteTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Stack
         as="main"
@@ -62,6 +85,7 @@ export default function Home({
             experiences for the web. Welcome to my playground.
           </Text>
         </Flex>
+
         <Flex
           flexDirection="column"
           justifyContent="flex-start"
@@ -117,8 +141,11 @@ export default function Home({
             <a href="https://twitter.com/_kylepeeler"> Twitter </a>and on
             <a href="https://github.com/kylepeeler"> Github </a>.
           </p>
-          <p>👷‍♂️🚧 This site is a work in progress!</p>
         </Flex>
+        <Alert status="warning" w="100%">
+          <AlertIcon />
+          This site is a work in progress. Links may be broken. ‍️🚧👷‍♂️
+        </Alert>
         {/* <Timeline />
         <Subscribe /> */}
       </Stack>

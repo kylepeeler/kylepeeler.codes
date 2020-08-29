@@ -13,7 +13,7 @@ const StyledDarkModeToggleWrapper = styled.div`
     width: 64px;
     height: 40px;
     background-color: #83d8ff;
-    border-radius: 88px;
+    border-radius: 84px;
     transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
     &:before {
