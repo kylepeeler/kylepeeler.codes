@@ -28,8 +28,7 @@
       "eslint --fix"
     ],
     "*.{html,json,md,mdx,yml}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "dependencies": {
