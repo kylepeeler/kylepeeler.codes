@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
+import { Heading } from '@chakra-ui/core';
 
 const name = 'Kyle Peeler';
 export const siteTitle = 'kylepeeler.codes';
@@ -18,6 +19,10 @@ export default function Layout({
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet"
+        ></link>
         <meta
           name="description"
           content="The personal blog and portfolio of Kyle Peeler"
@@ -39,7 +44,7 @@ export default function Layout({
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{siteTitle}</h1>
+            <Heading>{siteTitle}</Heading>
           </>
         ) : (
           <>
