@@ -47,7 +47,7 @@ export default function Layout({ children, home }) {
             </Link>
             <h2>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a className={utilStyles.colorInherit}>{siteTitle}</a>
               </Link>
             </h2>
           </>
@@ -57,7 +57,7 @@ export default function Layout({ children, home }) {
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
-            <a>🔙 to home</a>
+            <a>🔙 🏠</a>
           </Link>
         </div>
       )}
