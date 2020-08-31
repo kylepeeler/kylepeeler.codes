@@ -2,8 +2,8 @@ import React from 'react';
 import NextLink from 'next/link';
 import { Button, Flex, useColorMode, Stack } from '@chakra-ui/core';
 import styled from '@emotion/styled';
-import GradientText from 'components/GradientText';
-import { DarkModeToggle } from 'components/DarkModeToggle';
+import GradientText from './GradientText';
+import { DarkModeToggle } from './DarkModeToggle';
 
 const HeaderLine = styled.div`
   position: sticky;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Global, css } from '@emotion/core';
@@ -8,9 +9,9 @@ import {
   useColorMode
 } from '@chakra-ui/core';
 
-import theme from 'styles/theme';
+import theme from '../styles/theme';
 
-const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
+export const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
   const { colorMode } = useColorMode();
 
   return (
