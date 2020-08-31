@@ -1,5 +1,6 @@
 ---
 title: 'Two Forms of Pre-rendering'
+description: 'Lorem ipsum dolor sit amet'
 date: '2020-01-01'
 ---
 

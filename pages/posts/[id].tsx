@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import Layout from 'components/PageLayout';
-import Date from 'components/Date';
+import Layout from '../../components/PageLayout';
+import Date from '../../components/Date';
 
-import { getAllPostIds, getPostData } from 'lib/posts';
+import { getAllPostIds, getPostData } from '../../lib/posts';
 
 export default function Post({
   postData

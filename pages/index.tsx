@@ -1,8 +1,7 @@
-import Link from 'next/link';
-import { Flex, Heading, Button } from '@chakra-ui/core';
+import { Button, Text, Flex, Heading } from '@chakra-ui/core';
 
-import Date from '../components/Date';
 import LandingHeadline from '../components/LandingHeadline';
+import LatestBlogPosts from '../components/LatestBlogPosts';
 import PageLayout from '../components/PageLayout';
 import { getSortedPostsData } from '../lib/posts';
 
@@ -11,16 +10,17 @@ export async function getStaticProps() {
 
   return {
     props: {
-      allPostsData
+      posts: allPostsData
     }
   };
 }
 
 export default function Home({
-  allPostsData
+  posts
 }: {
-  allPostsData: {
+  posts: {
     date: string;
+    description: string;
     title: string;
     id: string;
   }[];
@@ -28,28 +28,7 @@ export default function Home({
   return (
     <PageLayout>
       <LandingHeadline />
-      <Flex
-        flexDirection="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        mt={8}
-      >
-        <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
-          Latest Blog Posts
-        </Heading>
-        {allPostsData.map(({ id, date, title }) => (
-          <li key={id}>
-            <Link href="/posts/[id]" as={`/posts/${id}`}>
-              <a>{title}</a>
-            </Link>
-            <br />
-            <small>
-              <Date dateString={date} />
-            </small>
-          </li>
-        ))}
-        <Button>View all Posts →</Button>
-      </Flex>
+      <LatestBlogPosts posts={posts} />
       <Flex
         flexDirection="column"
         justifyContent="flex-start"
@@ -58,11 +37,13 @@ export default function Home({
         <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
           Projects
         </Heading>
-        <p>
-          You can find me on
-          <a href="https://twitter.com/_kylepeeler"> Twitter </a>and on
-          <a href="https://github.com/kylepeeler"> Github </a>.
-        </p>
+        <Text>
+          🚧👷‍♂️ This section is under construction, but for now, check them out
+          on my Github!
+        </Text>
+        <a href="https://github.com/kylepeeler">
+          <Button mt={4}>View Github Profile →</Button>
+        </a>
       </Flex>
       {/* <Timeline /> */}
     </PageLayout>
