@@ -1,8 +1,9 @@
-import { Button, Text, Flex, Heading } from '@chakra-ui/core';
-
 import LandingHeadline from '../components/LandingHeadline';
 import LatestBlogPosts from '../components/LatestBlogPosts';
+import Projects from '../components/Projects';
+import Timeline from '../components/Timeline';
 import PageLayout from '../components/PageLayout';
+
 import { getSortedPostsData } from '../lib/posts';
 
 export async function getStaticProps() {
@@ -29,23 +30,8 @@ export default function Home({
     <PageLayout>
       <LandingHeadline />
       <LatestBlogPosts posts={posts} />
-      <Flex
-        flexDirection="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-      >
-        <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
-          Projects
-        </Heading>
-        <Text>
-          🚧👷‍♂️ This section is under construction, but for now, check them out
-          on my Github!
-        </Text>
-        <a href="https://github.com/kylepeeler">
-          <Button mt={4}>View Github Profile →</Button>
-        </a>
-      </Flex>
-      {/* <Timeline /> */}
+      <Projects />
+      <Timeline />
     </PageLayout>
   );
 }
