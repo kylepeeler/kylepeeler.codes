@@ -1,4 +1,5 @@
-import theme from '../styles/theme';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
 import { Global, css } from '@emotion/core';
 import {
   ThemeProvider,
@@ -6,9 +7,8 @@ import {
   ColorModeProvider,
   useColorMode
 } from '@chakra-ui/core';
-import cookies from 'next-cookies';
 
-import { AppProps } from 'next/app';
+import theme from 'styles/theme';
 
 const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
   const { colorMode } = useColorMode();
@@ -18,13 +18,17 @@ const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
       <CSSReset />
       <Global
         styles={css`
-          ::selection {
-            background-color: #47a3f3;
-            color: #fefefe;
-          }
           html {
             min-width: 360px;
             scroll-behavior: smooth;
+
+            /* Global Variables */
+            --theme-gradient: linear-gradient(
+              90deg,
+              #0af5f4 7.81%,
+              #adfe01 53.65%,
+              #ffd706 100%
+            );
           }
           #__next {
             display: flex;
@@ -39,32 +43,37 @@ const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const App = ({
-  Component,
-  pageProps,
-  initialColorMode
-}: AppProps & { initialColorMode: 'light' | 'dark' }): React.ReactNode => {
-  return (
+const GlobalHeader = () => (
+  <Head>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="https://use.typekit.net/pnj0wsg.css"></link>
+    <meta
+      name="description"
+      content="The personal blog & portfolio of Kyle Peeler"
+    />
+    <meta
+      property="og:image"
+      content={`https://og-image.now.sh/${encodeURI(
+        'kylepeeler.codes'
+      )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+    />
+    <meta name="og:title" content={'kylepeeler.codes'} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </Head>
+);
+
+const App = ({ Component, pageProps }: AppProps): React.ReactNode => (
+  <>
+    <GlobalHeader />
     <ThemeProvider theme={theme}>
-      <ColorModeProvider value={initialColorMode}>
+      {/* @FUTURE: how can we not always start at light?.. */}
+      <ColorModeProvider value={'light'}>
         <GlobalStyles>
           <Component {...pageProps} />
         </GlobalStyles>
       </ColorModeProvider>
     </ThemeProvider>
-  );
-};
-
-App.getInitialProps = async ({ Component, ctx }) => {
-  let pageProps = {};
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx);
-  }
-  const { isDarkMode = 'false' } = cookies(ctx);
-  return {
-    pageProps,
-    initialColorMode: isDarkMode === 'true' ? 'dark' : 'light'
-  };
-};
+  </>
+);
 
 export default App;

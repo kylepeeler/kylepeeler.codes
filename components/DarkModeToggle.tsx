@@ -1,49 +1,59 @@
-// Designed by Benjamin Réthoré
-
 import styled from '@emotion/styled';
 
+// Original CSS designed by Benjamin Réthoré, slightly tweaked by myself
+// Found here: https://codemyui.com/pure-css-ampm-toggle-switch/
+type StyledDarkModeToggleWrapperProps = { height: number };
+
 const StyledDarkModeToggleWrapper = styled.div`
+  --scale: ${(props: StyledDarkModeToggleWrapperProps) => props.height / 50};
+
+  display: inline-flex;
+  margin-left: 12px;
+
   input {
     display: none;
   }
+
   .toggle {
     cursor: pointer;
     display: inline-block;
     position: relative;
-    width: 64px;
-    height: 40px;
-    background-color: #83d8ff;
-    border-radius: 84px;
-    transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
-    &:before {
-      content: '';
+    /* &:before {
+      content: 'Light';
       position: absolute;
-      left: -40px;
-      top: 15px;
+      left: -32px;
+      top: 12px;
       font-size: 18px;
-    }
+    } */
 
-    &:after {
-      content: '';
+    /* &:after {
+      content: 'Dark';
       position: absolute;
       right: -48px;
       top: 15px;
       font-size: 18px;
       color: #749ed7;
-    }
+    } */
+
+    /* @FUTURE: find better way to scale while rounding pixels */
+    width: calc(var(--scale) * 90px);
+    height: calc(var(--scale) * 50px);
+    background-color: #83d8ff;
+    border-radius: calc(var(--scale) * 84px);
+    transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   }
 
   .toggle__handler {
     display: inline-block;
     position: relative;
     z-index: 1;
-    top: 3px;
-    left: 3px;
-    width: 34px;
-    height: 34px;
+    top: calc(var(--scale) * 3px);
+    left: calc(var(--scale) * 3px);
+    width: calc(var(--scale) * 44px);
+    height: calc(var(--scale) * 44px);
     background-color: #ffcf96;
-    border-radius: 40px;
+    border-radius: calc(var(--scale) * 50px);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform: rotate(-45deg);
@@ -57,24 +67,24 @@ const StyledDarkModeToggleWrapper = styled.div`
     }
 
     .crater--1 {
-      top: 14px;
-      left: 8px;
-      width: 3px;
-      height: 3px;
+      top: calc(var(--scale) * 18px);
+      left: calc(var(--scale) * 10px);
+      width: calc(var(--scale) * 5px);
+      height: calc(var(--scale) * 4px);
     }
 
     .crater--2 {
-      top: 22px;
-      left: 18px;
-      width: 5px;
-      height: 5px;
+      top: calc(var(--scale) * 28px);
+      left: calc(var(--scale) * 22px);
+      width: calc(var(--scale) * 6px);
+      height: calc(var(--scale) * 6px);
     }
 
     .crater--3 {
-      top: 8px;
-      left: 20px;
-      width: 7px;
-      height: 7px;
+      top: calc(var(--scale) * 10px);
+      left: calc(var(--scale) * 25px);
+      width: calc(var(--scale) * 8px);
+      height: calc(var(--scale) * 8px);
     }
   }
 
@@ -86,27 +96,27 @@ const StyledDarkModeToggleWrapper = styled.div`
   }
 
   .star--1 {
-    top: 8px;
-    left: 28px;
+    top: calc(var(--scale) * 10px);
+    left: calc(var(--scale) * 35px);
     z-index: 0;
-    width: 24px;
-    height: 2px;
+    width: calc(var(--scale) * 30px);
+    height: calc(var(--scale) * 3px);
   }
 
   .star--2 {
-    top: 14px;
-    left: 23px;
+    top: calc(var(--scale) * 18px);
+    left: calc(var(--scale) * 28px);
     z-index: 1;
-    width: 24px;
-    height: 2px;
+    width: calc(var(--scale) * 30px);
+    height: calc(var(--scale) * 3px);
   }
 
   .star--3 {
-    top: 22px;
-    left: 32px;
+    top: calc(var(--scale) * 27px);
+    left: calc(var(--scale) * 40px);
     z-index: 0;
-    width: 24px;
-    height: 2px;
+    width: calc(var(--scale) * 30px);
+    height: calc(var(--scale) * 3px);
   }
 
   .star--4,
@@ -117,30 +127,30 @@ const StyledDarkModeToggleWrapper = styled.div`
   }
 
   .star--4 {
-    top: 13px;
-    left: 8.8px;
+    top: calc(var(--scale) * 16px);
+    left: calc(var(--scale) * 11px);
     z-index: 0;
-    width: 2px;
-    height: 2px;
-    transform: translate3d(3px, 0, 0);
+    width: calc(var(--scale) * 2px);
+    height: calc(var(--scale) * 2px);
+    transform: translate3d(calc(var(--scale) * 3px, 0, 0));
   }
 
   .star--5 {
-    top: 24px;
-    left: 14px;
+    top: calc(var(--scale) * 32px);
+    left: calc(var(--scale) * 17px);
     z-index: 0;
-    width: 2px;
-    height: 2px;
-    transform: translate3d(3px, 0, 0);
+    width: calc(var(--scale) * 3px);
+    height: calc(var(--scale) * 3px);
+    transform: translate3d(calc(var(--scale) * 3px, 0, 0));
   }
 
   .star--6 {
-    top: 29px;
-    left: 23px;
+    top: calc(var(--scale) * 36px);
+    left: calc(var(--scale) * 28px);
     z-index: 0;
-    width: 2px;
-    height: 2px;
-    transform: translate3d(3px, 0, 0);
+    width: calc(var(--scale) * 2px);
+    height: calc(var(--scale) * 2px);
+    transform: translate3d(calc(var(--scale) * 3px, 0, 0));
   }
 
   input:checked {
@@ -157,27 +167,28 @@ const StyledDarkModeToggleWrapper = styled.div`
 
       .toggle__handler {
         background-color: #ffe5b5;
-        transform: translate3d(25px, 0, 0) rotate(0);
+        transform: translate3d(calc(var(--scale) * 40px), 0, 0) rotate(0);
+
         .crater {
           opacity: 1;
         }
       }
 
       .star--1 {
-        width: 2px;
-        height: 2px;
+        width: calc(var(--scale) * 2px);
+        height: calc(var(--scale) * 2px);
       }
 
       .star--2 {
-        width: 4px;
-        height: 4px;
-        transform: translate3d(-5px, 0, 0);
+        width: calc(var(--scale) * 4px);
+        height: calc(var(--scale) * 4px);
+        transform: translate3d(calc(var(--scale) * 5px), 0, 0);
       }
 
       .star--3 {
-        width: 2px;
-        height: 2px;
-        transform: translate3d(-7px, 0, 0);
+        width: calc(var(--scale) * 2px);
+        height: calc(var(--scale) * 2px);
+        transform: translate3d(calc(var(--scale) * 7px), 0, 0);
       }
 
       .star--4,
@@ -199,22 +210,25 @@ const StyledDarkModeToggleWrapper = styled.div`
   }
 `;
 export const DarkModeToggle = ({
+  height,
   checked,
   onChange
 }: {
   checked: boolean;
+  height: number;
   onChange: () => void;
 }) => {
   return (
-    <StyledDarkModeToggleWrapper>
+    <StyledDarkModeToggleWrapper height={height}>
       <input
         type="checkbox"
-        className="dn"
-        id="dn"
+        className="darkmode-toggle"
+        id="darkmode-toggle"
+        aria-label="Toggle Dark Mode"
         checked={checked}
         onChange={onChange}
       />
-      <label htmlFor="dn" className="toggle">
+      <label htmlFor="darkmode-toggle" className="toggle">
         <span className="toggle__handler">
           <span className="crater crater--1"></span>
           <span className="crater crater--2"></span>
@@ -229,4 +243,8 @@ export const DarkModeToggle = ({
       </label>
     </StyledDarkModeToggleWrapper>
   );
+};
+
+DarkModeToggle.defaultProps = {
+  height: 32
 };

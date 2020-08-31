@@ -1,5 +1,6 @@
 # 👨‍💻 [kylepeeler.codes](https://kylepeeler.codes)
 
+<!-- markdownlint-disable MD033 -->
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1-blue.svg?cacheSeconds=2592000" />
   <a href="https://opensource.org/licenses/MIT" target="_blank">
@@ -10,7 +11,7 @@
   </a>
 </p>
 
-### ✨➡️[Check it out here](https://kylepeeler.codes)
+## > ✨➡️[Check it out here](https://kylepeeler.codes)
 
 > My personal slice of the internet, this website serves as a portfolio & platform for my work and related (occasional) ramblings.
 
@@ -35,15 +36,16 @@ npm run test
 ## Built using
 
 - Next.js
+- Emotion
 - TypeScript
-- Vercel
 - Chakra UI
+- Deployed on Vercel
 
 ## Author
 
 👤 **Kyle Peeler**
 
-- Website: <https://kylepeeler.io>
+- Website: <https://kylepeeler.codes>
 - Twitter: [@\_kylepeeler](https://twitter.com/_kylepeeler)
 - Github: [@kylepeeler](https://github.com/kylepeeler)
 - LinkedIn: [@kylepeeler](https://linkedin.com/in/kylepeeler)
