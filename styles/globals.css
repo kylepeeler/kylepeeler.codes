@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    min-width: 360px;
+    scroll-behavior: smooth;
+
+    /* Global Variables */
+    --theme-gradient: linear-gradient(
+      90deg,
+      #0af5f4 7.81%,
+      #adfe01 53.65%,
+      #ffd706 100%
+    );
+  }
+
+  #__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: /*${colorMode === 'light' ? */'white' /*: '#171923'*/};
+  }
+}

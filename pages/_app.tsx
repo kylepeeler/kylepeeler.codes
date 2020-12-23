@@ -1,48 +1,43 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { Global, css } from '@emotion/core';
-import {
-  ThemeProvider,
-  CSSReset,
-  ColorModeProvider,
-  useColorMode
-} from '@chakra-ui/core';
+import { ThemeProvider, ColorModeProvider } from '@chakra-ui/core';
+import '../styles/globals.css';
 
 import theme from '../styles/theme';
 
-export const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
-  const { colorMode } = useColorMode();
+// export const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
+//   const { colorMode } = useColorMode();
 
-  return (
-    <>
-      <CSSReset />
-      <Global
-        styles={css`
-          html {
-            min-width: 360px;
-            scroll-behavior: smooth;
+//   return (
+//     <>
+//       <CSSReset />
+//       <Global
+//         styles={css`
+//           html {
+//             min-width: 360px;
+//             scroll-behavior: smooth;
 
-            /* Global Variables */
-            --theme-gradient: linear-gradient(
-              90deg,
-              #0af5f4 7.81%,
-              #adfe01 53.65%,
-              #ffd706 100%
-            );
-          }
-          #__next {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background: ${colorMode === 'light' ? 'white' : '#171923'};
-          }
-        `}
-      />
-      {children}
-    </>
-  );
-};
+//             /* Global Variables */
+//             --theme-gradient: linear-gradient(
+//               90deg,
+//               #0af5f4 7.81%,
+//               #adfe01 53.65%,
+//               #ffd706 100%
+//             );
+//           }
+//           #__next {
+//             display: flex;
+//             flex-direction: column;
+//             min-height: 100vh;
+//             background: ${colorMode === 'light' ? 'white' : '#171923'};
+//           }
+//         `}
+//       />
+//       {children}
+//     </>
+//   );
+// };
 
 const GlobalHeader = () => (
   <Head>
@@ -69,9 +64,9 @@ const App = ({ Component, pageProps }: AppProps): React.ReactNode => (
     <ThemeProvider theme={theme}>
       {/* @FUTURE: how can we not always start at light?.. */}
       <ColorModeProvider value={'light'}>
-        <GlobalStyles>
-          <Component {...pageProps} />
-        </GlobalStyles>
+        {/* <GlobalStyles> */}
+        <Component {...pageProps} />
+        {/* </GlobalStyles> */}
       </ColorModeProvider>
     </ThemeProvider>
   </>
