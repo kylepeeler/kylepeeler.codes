@@ -36,7 +36,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
     dark: 'white'
   };
   const navBgColor = {
-    light: 'rgba(252, 252, 252, 0.8)',
+    light: 'rgba(255, 255, 255, 0.8)',
     dark: 'rgba(23, 25, 35, 0.8)'
   };
 
@@ -65,7 +65,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
           <Flex
             as="nav"
             alignItems="center"
-            fontFamily="Proxima Nova"
+            fontFamily="body"
             fontWeight="bold"
             color="black"
             width={['100%', 'auto']}
