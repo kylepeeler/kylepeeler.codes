@@ -1,10 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider, ColorModeProvider } from '@chakra-ui/core';
 import '../styles/globals.css';
-
-import theme from '../styles/theme';
 
 // export const GlobalStyles = ({ children }: { children: React.ReactNode }) => {
 //   const { colorMode } = useColorMode();
@@ -61,14 +58,14 @@ const GlobalHeader = () => (
 const App = ({ Component, pageProps }: AppProps): React.ReactNode => (
   <>
     <GlobalHeader />
-    <ThemeProvider theme={theme}>
-      {/* @FUTURE: how can we not always start at light?.. */}
-      <ColorModeProvider value={'light'}>
-        {/* <GlobalStyles> */}
-        <Component {...pageProps} />
-        {/* </GlobalStyles> */}
-      </ColorModeProvider>
-    </ThemeProvider>
+    {/* <ThemeProvider theme={theme}> */}
+    {/* @FUTURE: how can we not always start at light?.. */}
+    {/* <ColorModeProvider value={'light'}> */}
+    {/* <GlobalStyles> */}
+    <Component {...pageProps} />
+    {/* </GlobalStyles> */}
+    {/* </ColorModeProvider> */}
+    {/* </ThemeProvider> */}
   </>
 );
 

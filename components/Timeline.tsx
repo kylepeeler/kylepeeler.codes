@@ -1,34 +1,21 @@
 import React, { useState } from 'react';
-import { Button, Flex, Heading, Text, useColorMode } from '@chakra-ui/core';
 import { Timeline as PrimerTimeline } from '@primer/components';
 
 const Year = ({ of, children }: { of: number; children: React.ReactNode }) => (
   <>
     {children}
-    <Heading mb={2} size="lg" fontWeight="bold">
-      {of}
-    </Heading>
+
+    <div className="mb-2 text-lg font-bold">{of}</div>
   </>
 );
 
 const TimelineItem = ({ badge, title, description }) => {
-  const { colorMode } = useColorMode();
-  const textColors = {
-    light: 'gray.700',
-    dark: 'white'
-  };
-  const descriptionColors = {
-    light: 'gray.500',
-    dark: 'gray.400'
-  };
   return (
     <PrimerTimeline.Item ml={24}>
       <PrimerTimeline.Badge>{badge}</PrimerTimeline.Badge>
       <PrimerTimeline.Body>
-        <Text color={textColors[colorMode]} fontWeight="bold">
-          {title}
-        </Text>
-        <Text color={descriptionColors[colorMode]}>{description}</Text>
+        <div className="font-bold">{title}</div>
+        <div className="text-gray-500 dark:text-gray-400">{description}</div>
       </PrimerTimeline.Body>
     </PrimerTimeline.Item>
   );
@@ -37,11 +24,9 @@ const TimelineItem = ({ badge, title, description }) => {
 const TimeLine = () => {
   const [showAllYears, setShowAllYears] = useState(false);
   return (
-    <Flex flexDirection="column" justifyContent="flex-start" my={16}>
+    <div className="space-y-16">
       <PrimerTimeline>
-        <Heading letterSpacing="tight" mb={2} size="xl" fontWeight={700}>
-          Timeline
-        </Heading>
+        <span className="mb-2 text-xl font-bold tracking-tight">Timeline</span>
         <Year of={2020}>
           <TimelineItem
             badge="💍"
@@ -73,17 +58,15 @@ const TimeLine = () => {
           />
         </Year>
       )}
-      <Button
-        my={4}
-        mx="auto"
-        fontWeight="medium"
-        rightIcon={!showAllYears ? 'chevron-down' : 'chevron-up'}
-        variant="ghost"
+      <button
+        className="my-4 mx-auto font-medium"
+        // rightIcon={!showAllYears ? 'chevron-down' : 'chevron-up'}
+        // variant="ghost"
         onClick={() => setShowAllYears(!showAllYears)}
       >
         {!showAllYears ? 'See More' : 'See Less'}
-      </Button>
-    </Flex>
+      </button>
+    </div>
   );
 };
 

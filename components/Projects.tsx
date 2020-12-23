@@ -1,22 +1,14 @@
-import { Flex, Heading, Text, Button } from '@chakra-ui/core';
 const Projects = () => (
-  <Flex
-    flexDirection="column"
-    justifyContent="flex-start"
-    alignItems="flex-start"
-    my={8}
-  >
-    <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
-      Projects
-    </Heading>
-    <Text>
+  <div className="space-y-8">
+    <div className="block mb-4 text-xl font-bold tracking-tight">Projects</div>
+    <div className="block">
       🚧👷‍♂️ This section is under construction, but for now, check them out on my
       Github!
-    </Text>
-    <a href="https://github.com/kylepeeler">
-      <Button mt={4}>View Github Profile →</Button>
+    </div>
+    <a className="block" href="https://github.com/kylepeeler">
+      <button className="mt-4 mb-8">View Github Profile →</button>
     </a>
-  </Flex>
+  </div>
 );
 
 export default Projects;

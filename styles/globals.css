@@ -8,18 +8,32 @@
     scroll-behavior: smooth;
 
     /* Global Variables */
-    --theme-gradient: linear-gradient(
-      90deg,
-      #0af5f4 7.81%,
-      #adfe01 53.65%,
-      #ffd706 100%
-    );
+    --theme-gradient:
+      linear-gradient(
+        90deg,
+        #0af5f4 7.81%,
+        #adfe01 53.65%,
+        #ffd706 100%
+      );
+  }
+
+  .sticky-nav {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    backdrop-filter: saturate(180%) blur(20px);
+
+    /* @HACK: Setting this to negative HeaderLine's height makes position: sticky work smoother */
+    margin-top: -10px;
+    transition: background-color 0.1 ease-in-out;
   }
 
   #__next {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: /*${colorMode === 'light' ? */'white' /*: '#171923'*/};
+    background: white;
+
+    /* background: ${colorMode === 'light' ? 'white' : '#171923' */
   }
 }
