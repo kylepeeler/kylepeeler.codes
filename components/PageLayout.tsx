@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import NextLink from 'next/link';
 import styled from '@emotion/styled';
 import GradientText from './GradientText';
