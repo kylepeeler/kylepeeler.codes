@@ -7,6 +7,19 @@ module.exports = {
   purge: ['./pages/**/*.tsx', './components/**/*.tsx'], // paths to all of my pages and components mso Tailwind can tree-shake unused styles in production builds
   darkMode: 'class',
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.coolGray,
+      red: colors.red,
+      orange: colors.orange,
+      yellow: colors.amber,
+      green: colors.lime,
+      blue: colors.cyan,
+      purple: colors.violet,
+    },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif']
@@ -86,7 +99,7 @@ module.exports = {
     }
   },
   variants: {
-    typography: ['dark']
+    typography: ['dark'],
   },
   plugins: [require('@tailwindcss/typography')]
 };

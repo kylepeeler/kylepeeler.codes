@@ -21,11 +21,11 @@ const BlogPost = ({ post }: { post: PostType }) => {
       <a className="w-full">
         <div className="mb-8 w-full">
           <div className="flex flex-col justify-between">
-            <h3 className="text-lg mg:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
+            <h3 className="text-lg mg:text-xl font-medium mb-2 w-full text-gray-900 dark:text-white">
               {title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">{description}</p>
-            <span className="gray-500 dark:gray-400 font-light text-sx">
+            <p className="text-gray-600 dark:text-white">{description}</p>
+            <span className="gray-500 dark:text-white font-light text-sx">
               <Date dateString={date} />
             </span>
             <small></small>
@@ -44,7 +44,7 @@ const LatestBlogPosts = ({ posts }: LatestBlogPostsType) => {
       // alignItems="flex-start"
       // my={16}
     >
-      <h2 className="block mb-2 text-xl tracking-tight font-bold">
+      <h2 className="block mb-2 text-3xl tracking-tight font-bold dark:text-white">
         Latest Blog Posts
       </h2>
       {posts?.map((post) => (
@@ -53,7 +53,7 @@ const LatestBlogPosts = ({ posts }: LatestBlogPostsType) => {
 
       <NextLink href={`/blog`} passHref>
         <a>
-          <button className="mt-3">View All Posts →</button>
+          <button className="mt-3 dark:text-white">View All Posts →</button>
         </a>
       </NextLink>
     </div>

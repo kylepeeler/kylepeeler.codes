@@ -4,11 +4,11 @@ import styled from '@emotion/styled';
 // Found here: https://codemyui.com/pure-css-ampm-toggle-switch/
 type StyledDarkModeToggleWrapperProps = { height: number };
 
-const StyledDarkModeToggleWrapper = styled.div`
-  --scale: ${(props: StyledDarkModeToggleWrapperProps) => props.height / 50};
-
+const StyledDarkModeToggleWrapper = styled.div<StyledDarkModeToggleWrapperProps>`
   display: inline-flex;
   margin-left: 12px;
+
+  --scale: ${({ height }) => height / 50};
 
   input {
     display: none;
@@ -18,6 +18,8 @@ const StyledDarkModeToggleWrapper = styled.div`
     cursor: pointer;
     display: inline-block;
     position: relative;
+
+    /* Toggle labels */
 
     /* &:before {
       content: 'Light';
@@ -36,7 +38,7 @@ const StyledDarkModeToggleWrapper = styled.div`
       color: #749ed7;
     } */
 
-    /* @FUTURE: find better way to scale while rounding pixels */
+    /* @FUTURE: find better way to scale while rounding pixels... repeating calc(var(--scale) * X) is ugly af */
     width: calc(var(--scale) * 90px);
     height: calc(var(--scale) * 50px);
     background-color: #83d8ff;
@@ -90,7 +92,7 @@ const StyledDarkModeToggleWrapper = styled.div`
 
   .star {
     position: absolute;
-    background-color: #ffffff;
+    background-color: #fff;
     transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
     border-radius: 50%;
   }
@@ -132,7 +134,7 @@ const StyledDarkModeToggleWrapper = styled.div`
     z-index: 0;
     width: calc(var(--scale) * 2px);
     height: calc(var(--scale) * 2px);
-    transform: translate3d(calc(var(--scale) * 3px, 0, 0));
+    transform: translate3d(calc(var(--scale) * 3px), 0, 0);
   }
 
   .star--5 {
@@ -141,7 +143,7 @@ const StyledDarkModeToggleWrapper = styled.div`
     z-index: 0;
     width: calc(var(--scale) * 3px);
     height: calc(var(--scale) * 3px);
-    transform: translate3d(calc(var(--scale) * 3px, 0, 0));
+    transform: translate3d(calc(var(--scale) * 3px), 0, 0);
   }
 
   .star--6 {
@@ -150,19 +152,19 @@ const StyledDarkModeToggleWrapper = styled.div`
     z-index: 0;
     width: calc(var(--scale) * 2px);
     height: calc(var(--scale) * 2px);
-    transform: translate3d(calc(var(--scale) * 3px, 0, 0));
+    transform: translate3d(calc(var(--scale) * 3px), 0, 0);
   }
 
   input:checked {
     + .toggle {
       background-color: #749dd6;
 
-      &:before {
+      &::before {
         color: #749ed7;
       }
 
-      &:after {
-        color: #ffffff;
+      &::after {
+        color: #fff;
       }
 
       .toggle__handler {
@@ -197,12 +199,15 @@ const StyledDarkModeToggleWrapper = styled.div`
         opacity: 1;
         transform: translate3d(0, 0, 0);
       }
+
       .star--4 {
         transition: all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
       }
+
       .star--5 {
         transition: all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
       }
+
       .star--6 {
         transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
       }

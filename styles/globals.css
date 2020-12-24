@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@variants group-hover, hover, focus {
+  .text-filter-shadow-thin {
+    -webkit-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+  }
+
+  .text-filter-shadow {
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+  }
+
+  .text-filter-shadow-md {
+    -webkit-filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  .text-filter-shadow-lg {
+    -webkit-filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.3));
+  }
+
+  .text-filter-shadow-none {
+    -webkit-filter: none;
+    filter: none;
+  }
+}
+
 @layer base {
   html {
     min-width: 360px;
@@ -32,8 +59,5 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: white;
-
-    /* background: ${colorMode === 'light' ? 'white' : '#171923' */
   }
 }
