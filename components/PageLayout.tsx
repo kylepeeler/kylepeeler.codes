@@ -16,7 +16,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="bg-white dark:bg-black">
       <GradientLine />
-      <nav className="sticky-nav flex justify-between items-center w-full p-8 -mt-8 mx-auto bg-white dark:bg-black bg-opacity-60">
+      <nav className="sticky-nav flex justify-between items-center w-full p-8 -mt-8 mx-auto bg-white dark:bg-black bg-opacity-60 dark:text-white">
         <div className="flex w-full place-content-between items-center max-w-4xl mx-auto px-8">
           <NextLink href="/" passHref>
             <a>
@@ -52,7 +52,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </nav>
-      <main className="flex flex-col justify-center bg-white dark:bg-black p-8 container mx-auto max-w-4xl">
+      <main className="flex flex-col justify-center bg-white dark:bg-black dark:text-white p-8 container mx-auto max-w-4xl">
         {children}
         {/* <Footer /> */}
       </main>
