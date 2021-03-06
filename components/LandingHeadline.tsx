@@ -1,4 +1,5 @@
 import GradientText from './gradients/GradientText';
+
 const LandingHeadline = () => {
   return (
     <div className="flex flex-col justify-start items-start max-w-2xl my-12">
