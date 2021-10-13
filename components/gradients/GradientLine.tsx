@@ -1,5 +1,5 @@
 export const THEME_GRADIENT = `
-  bg-gradient-to-r from-blue-400 via-purple-500 to-red-600 dark:from-blue-300 dark:via-green-400 dark:to-yellow-500
+  bg-gradient-to-r from-blue-400 to-green-500 dark:from-blue-300 dark:via-green-400 dark:to-yellow-500
 `;
 
 const GradientLine = () => (

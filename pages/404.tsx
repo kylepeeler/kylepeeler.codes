@@ -11,7 +11,7 @@ export default function Custom404() {
           alignContent: 'center'
         }}
       >
-        <h1> Page Not Found... 😢</h1>
+        <h1>🚧 Page Coming Soon...</h1>
       </div>
     </Layout>
   );

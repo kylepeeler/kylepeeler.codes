@@ -33,15 +33,16 @@
   html {
     min-width: 360px;
     scroll-behavior: smooth;
+    height: 100%;
 
     /* Global Variables */
-    --theme-gradient:
+    /* --theme-gradient:
       linear-gradient(
         90deg,
         #0af5f4 7.81%,
         #adfe01 53.65%,
         #ffd706 100%
-      );
+      ); */
   }
 
   .sticky-nav {
@@ -59,5 +60,9 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+  }
+
+  html.dark #__next {
+    background-color: black;
   }
 }

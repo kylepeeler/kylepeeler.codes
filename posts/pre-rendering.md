@@ -1,6 +1,6 @@
 ---
 title: 'Two Forms of Pre-rendering'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Learn about the two forms of rendering provided by Next.js'
 date: '2020-01-01'
 ---
 
