@@ -1,6 +1,6 @@
 const Projects = () => (
-  <div className="w-full flex flex-col my-16 dark:text-white">
-    <h2 className="block mb-2 text-3xl font-bold tracking-tight">Projects</h2>
+  <div className="text-gray-700 w-full flex flex-col my-16 dark:text-white">
+    <h2 className="block mb-4 text-3xl font-bold tracking-tight">Projects</h2>
     <div className="block">
       🚧👷‍♂️ This section is under construction, but for now, check them out on my
       Github!

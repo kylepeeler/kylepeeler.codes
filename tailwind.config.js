@@ -18,7 +18,7 @@ module.exports = {
       yellow: colors.amber,
       green: colors.lime,
       blue: colors.cyan,
-      purple: colors.violet,
+      purple: colors.violet
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -35,6 +35,23 @@ module.exports = {
             '4xl': '2rem'
           }
         }
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': {
+            transform: 'rotate(-10deg)'
+          },
+          '50%': {
+            transform: 'rotate(10deg)'
+          }
+        }
+      },
+      cursor: {
+        hand: 'grab',
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out 2s',
+        wiggleinf: 'wiggle 1s ease-in-out infinite',
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -100,6 +117,9 @@ module.exports = {
   },
   variants: {
     typography: ['dark'],
+    extend: {
+      animation: ['hover', 'focus']
+    }
   },
   plugins: [require('@tailwindcss/typography')]
 };

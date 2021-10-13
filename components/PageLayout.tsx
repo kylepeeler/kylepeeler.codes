@@ -40,7 +40,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
                 Dashboard
               </a>
             </NextLink> */}
-            <NextLink href="/">
+            <NextLink href="/uses">
               <a className="p-1 sm:p-4 text-gray-900 dark:text-white">Uses</a>
             </NextLink>
             {isMounted && (

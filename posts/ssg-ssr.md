@@ -1,6 +1,6 @@
 ---
 title: 'When to Use Static Generation v.s. Server-side Rendering'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Learn about the best way to differentiate when to use either one'
 date: '2020-01-02'
 ---
 
