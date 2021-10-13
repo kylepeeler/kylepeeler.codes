@@ -38,7 +38,7 @@ npm run test
 - Next.js
 - Emotion
 - TypeScript
-- Chakra UI
+- Tailwind UI
 - Deployed on Vercel
 
 ## Author
@@ -47,7 +47,7 @@ npm run test
 
 - Website: <https://kylepeeler.codes>
 - Twitter: [@\_kylepeeler](https://twitter.com/_kylepeeler)
-- Github: [@kylepeeler](https://github.com/kylepeeler)
+- GitHub: [@kylepeeler](https://github.com/kylepeeler)
 - LinkedIn: [@kylepeeler](https://linkedin.com/in/kylepeeler)
 
 ## Show your support

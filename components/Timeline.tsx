@@ -27,6 +27,13 @@ const TimeLine = () => {
       <PrimerTimeline>
         <span className="mb-2 text-3xl font-bold tracking-tight">Timeline</span>
         <PrimerTimeline.Break className="border-t-0 dark:bg-black" />
+        <Year of={2021}>
+          <TimelineItem
+            badge="🦄"
+            title="Joined Ironclad"
+            description="PactSafe was acquired by Ironclad, a San Francisco unicorn startup!"
+          />
+        </Year>
         <Year of={2020}>
           <TimelineItem
             badge="💍"
@@ -38,7 +45,7 @@ const TimeLine = () => {
           <TimelineItem
             badge="🧑🏼‍💻"
             title="Started full-time PactSafe"
-            description="Started working (finally) as a full-time front-end Software Engineer for PactSafe."
+            description="Started working as a full-time front-end Software Engineer for PactSafe."
           />
         </Year>
         <Year of={2018}>
