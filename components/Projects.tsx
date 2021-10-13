@@ -3,10 +3,10 @@ const Projects = () => (
     <h2 className="block mb-4 text-3xl font-bold tracking-tight">Projects</h2>
     <div className="block">
       🚧👷‍♂️ This section is under construction, but for now, check them out on my
-      Github!
+      GitHub!
     </div>
     <a className="block" href="https://github.com/kylepeeler">
-      <button className="my-8">View Github Profile →</button>
+      <button className="my-8">View GitHub Profile →</button>
     </a>
   </div>
 );
