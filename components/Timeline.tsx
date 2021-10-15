@@ -13,7 +13,7 @@ const TimelineItem = ({ badge, title, description }) => {
     <PrimerTimeline.Item ml={24}>
       <PrimerTimeline.Badge>{badge}</PrimerTimeline.Badge>
       <PrimerTimeline.Body>
-        <div className="font-bold dark:text-white">{title}</div>
+        <div className="font-bold text-gray-700 dark:text-white">{title}</div>
         <div className="text-gray-500 dark:text-white">{description}</div>
       </PrimerTimeline.Body>
     </PrimerTimeline.Item>

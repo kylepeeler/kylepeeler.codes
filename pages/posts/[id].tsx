@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import Layout from '../../components/PageLayout';
 import Date from '../../components/Date';
 
 import { getAllPostIds, getPostData } from '../../lib/posts';
@@ -16,23 +15,26 @@ export default function Post({
   };
 }) {
   return (
-    <Layout>
+    <>
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <a href="/">⬅ Go Back</a>
+      <a href="/">← Go Back</a>
       <br />
       <article>
-        <h1 className="font-medium text-2xl md:text-2xl tracking-tight mb-4">
+        <h1 className="text-gray-800 font-medium text-2xl md:text-2xl tracking-tight mb-4">
           {postData.title}
         </h1>
         <div>
           <Date dateString={postData.date} />
         </div>
         <br />
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
       </article>
-    </Layout>
+    </>
   );
 }
 
