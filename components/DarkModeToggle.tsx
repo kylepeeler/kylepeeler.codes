@@ -126,33 +126,29 @@ const StyledDarkModeToggleWrapper = styled.div<StyledDarkModeToggleWrapperProps>
   .star--6 {
     opacity: 0;
     transition: all 300ms 0 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transform: translate3d(calc(var(--scale) * 3px), 0, 0);
+    z-index: 0;
   }
 
   .star--4 {
     top: calc(var(--scale) * 16px);
     left: calc(var(--scale) * 11px);
-    z-index: 0;
     width: calc(var(--scale) * 2px);
     height: calc(var(--scale) * 2px);
-    transform: translate3d(calc(var(--scale) * 3px), 0, 0);
   }
 
   .star--5 {
     top: calc(var(--scale) * 32px);
     left: calc(var(--scale) * 17px);
-    z-index: 0;
     width: calc(var(--scale) * 3px);
     height: calc(var(--scale) * 3px);
-    transform: translate3d(calc(var(--scale) * 3px), 0, 0);
   }
 
   .star--6 {
     top: calc(var(--scale) * 36px);
     left: calc(var(--scale) * 28px);
-    z-index: 0;
     width: calc(var(--scale) * 2px);
     height: calc(var(--scale) * 2px);
-    transform: translate3d(calc(var(--scale) * 3px), 0, 0);
   }
 
   input:checked {
@@ -198,18 +194,7 @@ const StyledDarkModeToggleWrapper = styled.div<StyledDarkModeToggleWrapperProps>
       .star--6 {
         opacity: 1;
         transform: translate3d(0, 0, 0);
-      }
-
-      .star--4 {
         transition: all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-      }
-
-      .star--5 {
-        transition: all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-      }
-
-      .star--6 {
-        transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
       }
     }
   }

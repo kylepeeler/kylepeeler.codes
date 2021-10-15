@@ -34,6 +34,7 @@
     min-width: 360px;
     scroll-behavior: smooth;
     height: 100%;
+    overscroll-behavior-y: none;
 
     /* Global Variables */
     /* --theme-gradient:
@@ -43,6 +44,10 @@
         #adfe01 53.65%,
         #ffd706 100%
       ); */
+  }
+
+  body {
+    overscroll-behavior-y: none;
   }
 
   .sticky-nav {
