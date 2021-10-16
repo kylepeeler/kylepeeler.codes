@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import GradientLine from './gradients/GradientLine';
 import GradientText from './gradients/GradientText';
 import { DarkModeToggle } from './DarkModeToggle';
+import Footer from './Footer';
 
 const NavItem = ({ name, href }) => (
   <NextLink href={href}>
@@ -51,7 +52,7 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
       </nav>
       <main className="flex flex-col justify-center bg-white dark:bg-black dark:text-white p-8 container mx-auto max-w-4xl">
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </main>
     </div>
   );
