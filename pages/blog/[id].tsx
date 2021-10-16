@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import Date from '../../components/Date';
@@ -19,10 +20,12 @@ export default function Post({
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <a href="/">← Go Back</a>
+      <Link href="/blog">
+        <a className="text-sm mt-3 text-gray-700 dark:text-white">← Go Back</a>
+      </Link>
       <br />
       <article>
-        <h1 className="text-gray-800 font-medium text-2xl md:text-2xl tracking-tight mb-4">
+        <h1 className="text-gray-700 block mb-4 text-3xl tracking-tight font-bold dark:text-white">
           {postData.title}
         </h1>
         <div>

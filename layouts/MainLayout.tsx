@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
-import GradientLine from './gradients/GradientLine';
-import GradientText from './gradients/GradientText';
-import { DarkModeToggle } from './DarkModeToggle';
+import { useRouter } from 'next/router';
+import GradientLine from '../components/gradients/GradientLine';
+import GradientText from '../components/gradients/GradientText';
+import { DarkModeToggle } from '../components/DarkModeToggle';
+import Footer from '../components/Footer';
 
-const NavItem = ({ name, href }) => (
-  <NextLink href={href}>
-    <a className="p-1 sm:p-2 sm:m-2 hover:bg-green-100 bg-opacity-75 rounded-md text-gray-900 dark:text-white">
-      {name}
-    </a>
-  </NextLink>
-);
+const NavItem = ({ name, href }) => {
+  const { pathname } = useRouter();
+  const isActive = pathname.includes(href);
+  return (
+    <NextLink href={href}>
+      <a
+        className={`${
+          isActive ? 'text-bold' : ''
+        } p-1 sm:p-2 sm:m-2 hover:ring-2 hover:ring-green-300 hover:bg-green-100 bg-opacity-75 rounded-md text-gray-900 dark:text-white dark:bg-opacity-10 dark:hover:bg-black`}
+      >
+        {name}
+      </a>
+    </NextLink>
+  );
+};
 
-const PageLayout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
   // Done to avoid a hydration mismatch because we cannot know the theme on the server
   // See https://www.npmjs.com/package/next-themes#avoid-hydration-mismatch
   const [isMounted, setIsMounted] = useState(false);
@@ -51,10 +61,10 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
       </nav>
       <main className="flex flex-col justify-center bg-white dark:bg-black dark:text-white p-8 container mx-auto max-w-4xl">
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </main>
     </div>
   );
 };
 
-export default PageLayout;
+export default MainLayout;
