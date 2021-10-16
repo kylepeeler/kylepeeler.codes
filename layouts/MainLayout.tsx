@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import GradientLine from './gradients/GradientLine';
-import GradientText from './gradients/GradientText';
-import { DarkModeToggle } from './DarkModeToggle';
-import Footer from './Footer';
+import GradientLine from '../components/gradients/GradientLine';
+import GradientText from '../components/gradients/GradientText';
+import { DarkModeToggle } from '../components/DarkModeToggle';
+import Footer from '../components/Footer';
 
 const NavItem = ({ name, href }) => {
   const { pathname } = useRouter();
@@ -23,7 +23,7 @@ const NavItem = ({ name, href }) => {
   );
 };
 
-const PageLayout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
   // Done to avoid a hydration mismatch because we cannot know the theme on the server
   // See https://www.npmjs.com/package/next-themes#avoid-hydration-mismatch
   const [isMounted, setIsMounted] = useState(false);
@@ -67,4 +67,4 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default PageLayout;
+export default MainLayout;
