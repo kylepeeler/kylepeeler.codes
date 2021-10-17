@@ -1,30 +1,27 @@
 import LandingHeadline from '../components/LandingHeadline';
-import LatestBlogPosts from '../components/LatestBlogPosts';
+import LatestBlogPosts, {
+  LatestBlogPostsType
+} from '../components/LatestBlogPosts';
 import Projects from '../components/Projects';
 import Timeline from '../components/Timeline';
-
-import { getSortedPostsData } from '../lib/posts';
+import { allBlogs } from '.contentlayer/data';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const posts = allBlogs
+    .sort(
+      (a, b) =>
+        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    )
+    .slice(0, 3);
 
   return {
     props: {
-      posts: allPostsData
+      posts
     }
   };
 }
 
-export default function Home({
-  posts
-}: {
-  posts: {
-    date: string;
-    description: string;
-    title: string;
-    id: string;
-  }[];
-}) {
+export default function Home({ posts }: LatestBlogPostsType) {
   return (
     <>
       <LandingHeadline />

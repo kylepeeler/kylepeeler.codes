@@ -1,4 +1,4 @@
-const PageContentLayout: React.FC<{
+const Container: React.FC<{
   title: string;
   subtitle: string;
   children: any;
@@ -13,4 +13,4 @@ const PageContentLayout: React.FC<{
   </>
 );
 
-export default PageContentLayout;
+export default Container;

@@ -1,20 +1,32 @@
-import PageContentLayout from '../layouts/PageContentLayout';
+import { useMemo } from 'react';
+import { GetStaticProps } from 'next';
+import { getMDXComponent } from 'mdx-bundler/client';
+import { allPages } from '.contentlayer/data';
+import { Page } from '.contentlayer/types';
+import Container from '../components/Container';
 
-const Uses = () => (
-  <PageContentLayout
-    title="What I Use"
-    subtitle="Here is the gear I use to code, browse the internet, and listen to music."
-  >
-    <h2 className="text-gray-700 block mb-4 text-xl tracking-tight font-bold dark:text-white">
-      Desk Setup
-    </h2>
-    <h2 className="text-gray-700 block mb-4 text-xl tracking-tight font-bold dark:text-white">
-      Editor + Terminal
-    </h2>
-    <h2 className="text-gray-700 block mb-4 text-xl tracking-tight font-bold dark:text-white">
-      Desktop Apps
-    </h2>
-  </PageContentLayout>
-);
+const Uses = ({ uses }: { uses: Page }) => {
+  const UsesComponent = useMemo(
+    () => getMDXComponent(uses.body.code),
+    [uses.body.code]
+  );
+  return (
+    <Container
+      title="What I Use"
+      subtitle="Here is the gear I use to code, browse the internet, and listen to music."
+    >
+      <UsesComponent />
+    </Container>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const uses = allPages.find((page) => page.slug === 'uses');
+  return {
+    props: {
+      uses
+    }
+  };
+};
 
 export default Uses;
