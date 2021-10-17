@@ -37,7 +37,6 @@
     overscroll-behavior-y: none;
 
     /* Global Variables */
-
     /* --theme-gradient:
       linear-gradient(
         90deg,
@@ -70,9 +69,5 @@
 
   html.dark #__next {
     background-color: black;
-  }
-
-  .prose {
-    max-width: 0;
   }
 }

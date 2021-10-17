@@ -47,11 +47,11 @@ module.exports = {
         }
       },
       cursor: {
-        hand: 'grab'
+        hand: 'grab',
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out 2s',
-        wiggleinf: 'wiggle 1s ease-in-out infinite'
+        wiggleinf: 'wiggle 1s ease-in-out infinite',
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -118,9 +118,7 @@ module.exports = {
   variants: {
     typography: ['dark'],
     extend: {
-      animation: ['hover', 'focus'],
-      ringWidth: ['hover'],
-      ringColor: ['hover']
+      animation: ['hover', 'focus']
     }
   },
   plugins: [require('@tailwindcss/typography')]
