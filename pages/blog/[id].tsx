@@ -33,7 +33,7 @@ export default function Post({
         </div>
         <br />
         <div
-          className="prose"
+          className="prose dark:text-white"
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
       </article>

@@ -68,7 +68,7 @@
     min-height: 100vh;
   }
 
-  html.dark #__next {
+  html.dark {
     background-color: black;
   }
 
