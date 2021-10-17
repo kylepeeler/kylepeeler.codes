@@ -4,7 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   important: true,
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx'], // paths to all of my pages and components mso Tailwind can tree-shake unused styles in production builds
+  purge: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx'], // paths to all of my pages and components mso Tailwind can tree-shake unused styles in production builds
   darkMode: 'class',
   theme: {
     colors: {
