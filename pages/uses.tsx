@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { allPages } from '.contentlayer/data';
 import { Page } from '.contentlayer/types';
+import components from '../components/MDXComponents';
 import Container from '../components/Container';
 
 const Uses = ({ uses }: { uses: Page }) => {
@@ -15,7 +16,9 @@ const Uses = ({ uses }: { uses: Page }) => {
       title="What I Use"
       subtitle="Here is the gear I use to code, browse the internet, and listen to music."
     >
-      <UsesComponent />
+      <div className="prose dark:prose-dark max-w-none">
+        <UsesComponent components={components} />
+      </div>
     </Container>
   );
 };
