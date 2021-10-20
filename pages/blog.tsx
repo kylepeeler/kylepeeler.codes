@@ -1,28 +1,33 @@
-import { getSortedPostsData } from '../lib/posts';
-import PageContentLayout from '../layouts/PageContentLayout';
-import { BlogPost, PostType } from '../components/LatestBlogPosts';
+import { allBlogs } from '.contentlayer/data';
+import Container from '../components/Container';
+import pick from 'lodash/pick';
+import { BlogPost, LatestBlogPostsType } from '../components/LatestBlogPosts';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const posts = allBlogs
+    .sort(
+      (a, b) =>
+        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    )
+    .map((post) =>
+      pick(post, ['slug', 'title', 'description', 'publishedAt', 'readingTime'])
+    );
 
   return {
     props: {
-      posts: allPostsData
+      posts
     }
   };
 }
 
-const Blog = ({ posts }: { posts: PostType[] }) => (
-  <>
-    <PageContentLayout
-      title="All Blog Posts"
-      subtitle="Check out some of my writings!"
-    >
+const Blog = ({ posts }: LatestBlogPostsType) => {
+  return (
+    <Container title="All Blog Posts" subtitle="Check out some of my writings!">
       {posts.map((post) => (
-        <BlogPost post={post} key={post.id} />
+        <BlogPost post={post} key={post.slug} />
       ))}
-    </PageContentLayout>
-  </>
-);
+    </Container>
+  );
+};
 
 export default Blog;

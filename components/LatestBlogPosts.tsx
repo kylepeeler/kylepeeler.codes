@@ -1,23 +1,22 @@
 import React from 'react';
 import NextLink from 'next/link';
 import Date from '../components/Date';
+import type { Blog } from '.contentlayer/types';
 
-export type PostType = {
-  id: string;
-  date: string;
-  title: string;
-  description: string;
-};
+export type LatestBlogPostType = Pick<
+  Blog,
+  'title' | 'description' | 'slug' | 'publishedAt' | 'readingTime'
+>;
 
 export type LatestBlogPostsType = {
-  posts: PostType[];
+  posts: LatestBlogPostType[];
 };
 
-export const BlogPost = ({ post }: { post: PostType }) => {
-  const { id, title, date, description } = post;
+export const BlogPost = ({ post }: { post: LatestBlogPostType }) => {
+  const { slug, title, publishedAt, description, readingTime } = post;
 
   return (
-    <NextLink href={`/blog/${id}`} passHref>
+    <NextLink href={`/blog/${slug}`} passHref>
       <a className="w-full">
         <div className="mb-8 w-full">
           <div className="flex flex-col justify-between">
@@ -25,10 +24,9 @@ export const BlogPost = ({ post }: { post: PostType }) => {
               {title}
             </h3>
             <p className="text-gray-500 dark:text-white">{description}</p>
-            <span className="gray-500 dark:text-white font-light text-xs">
-              <Date dateString={date} />
+            <span className="text-gray-500 dark:text-white font-light text-xs">
+              <Date dateString={publishedAt} /> · {readingTime.text}
             </span>
-            <small></small>
           </div>
         </div>
       </a>
@@ -43,7 +41,7 @@ const LatestBlogPosts = ({ posts }: LatestBlogPostsType) => {
         Latest Blog Posts
       </h2>
       {posts?.slice(0, 3).map((post) => (
-        <BlogPost post={post} key={post.id} />
+        <BlogPost post={post} key={post.slug} />
       ))}
 
       <NextLink href={`/blog`} passHref>
