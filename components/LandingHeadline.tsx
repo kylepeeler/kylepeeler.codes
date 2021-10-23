@@ -16,8 +16,8 @@ const LandingHeadline = () => {
       <span className="text-gray-700 dark:text-white leading-relaxed">
         I am front-end software engineer living in Broad Ripple, IN, and am
         currently working for{' '}
-        <a className="underline" href="https://ironcladhq.com">
-          Ironclad
+        <a className="underline" href="https://zylo.com">
+          Zylo
         </a>
         . I love building intuitive and beautiful user experiences for the web,
         and helping to teach other engineers to learn and grow along the way.
