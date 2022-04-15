@@ -34,13 +34,6 @@ const TimeLine = () => {
             description="PactSafe was acquired by Ironclad, a San Francisco unicorn startup!"
           />
         </Year>
-        <Year of={2020}>
-          <TimelineItem
-            badge="💍"
-            title="Got Engaged"
-            description="Got engaged to my beautiful fiancée, Liz!"
-          />
-        </Year>
         <Year of={2019}>
           <TimelineItem
             badge="🧑🏼‍💻"
