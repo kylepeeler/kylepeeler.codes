@@ -31,6 +31,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => setIsMounted(true), []);
 
+  if (!isMounted) return null;
+
   return (
     <div className="bg-white dark:bg-black">
       <GradientLine />
