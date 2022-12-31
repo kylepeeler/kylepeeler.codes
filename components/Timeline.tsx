@@ -22,7 +22,10 @@ const TimelineItem = ({
   return (
     <PrimerTimeline.Item ml={24}>
       <PrimerTimeline.Badge>
-        <div className={badgeColor ? `text-${badgeColor}` : null}>{badge}</div>
+        {/* Quick hack because we can't use string interpolation for tailwind classes - https://tailwindcss.com/docs/content-configuration#class-detection-in-depth */}
+        <div className={badgeColor === 'orange' ? `text-orange-600` : null}>
+          {badge}
+        </div>
       </PrimerTimeline.Badge>
       <PrimerTimeline.Body>
         <div className="font-bold text-gray-700 dark:text-white">{title}</div>
@@ -49,7 +52,7 @@ const TimeLine = () => {
         <Year of={2021}>
           <TimelineItem
             badge="Z"
-            badgeColor="orange-600"
+            badgeColor="orange"
             title="Joined Zylo"
             description="After the acquisition by Ironclad, I decided to join a different SaaS startup, focusing on enterprise SaaS management."
           />
