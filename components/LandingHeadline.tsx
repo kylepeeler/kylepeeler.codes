@@ -17,7 +17,11 @@ const LandingHeadline = () => {
         I am Senior UI Software Engineer living in San Jose, CA; working for {' '}
         Apple on the{' '}
         <a className="underline" href="https://apple.com/wallet">
-          Wallet & Payments
+          Wallet
+        </a>{' '}
+        &{' '}
+        <a className="underline" href="https://www.apple.com/apple-pay/">
+          Payments
         </a>{' '}
         team.
         <br />

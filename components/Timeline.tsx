@@ -46,7 +46,7 @@ const TimeLine = () => {
           <TimelineItem
             badge="✈️"
             title="Relocated from San Diego ➡️ The Bay Area"
-            description="After being in San Diego for almost 3 years, I moved to be closer to my team! I'm now living in San Jose, CA, but primarily work out of Cupertino, CA"
+            description="After being in San Diego for almost 3 years, I moved to be closer to my team! I'm now living in San Jose, CA, but primarily work out of Cupertino, CA."
           />
         </Year>
         <Year of={2022}>
@@ -87,14 +87,14 @@ const TimeLine = () => {
             </Year>
             <Year of={2004}>
               <TimelineItem
-                badge={'🧑🏼‍💻'}
+                badge="🧑🏼‍💻"
                 title="Built my first website"
                 description="I wanted to build a website for my Halo 2 clan, which led me to learn HTML & CSS."
               />
             </Year>
             <Year of={1995}>
               <TimelineItem
-                badge={'🍼'}
+                badge="🍼"
                 title="Born"
                 description="I was born on May 15, 1995 in Indianapolis, IN."
               />
