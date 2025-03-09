@@ -25,6 +25,7 @@ export default function Home({ posts }: LatestBlogPostsType) {
   return (
     <>
       <LandingHeadline />
+      {/* TODO: Actually write a post of my own? Or remove?... */}
       <LatestBlogPosts posts={posts} />
       <Projects />
       <Timeline />

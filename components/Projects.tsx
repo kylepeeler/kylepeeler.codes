@@ -10,7 +10,7 @@ const Projects = () => (
       !
     </div>
     <a className="block" href="https://github.com/kylepeeler">
-      <button className="my-8">View GitHub Profile →</button>
+      <button className="my-8">🔗 ➡️ View my GitHub Profile </button>
     </a>
   </div>
 );

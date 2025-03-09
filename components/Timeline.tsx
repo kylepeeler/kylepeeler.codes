@@ -42,6 +42,13 @@ const TimeLine = () => {
       <PrimerTimeline>
         <span className="mb-2 text-3xl font-bold tracking-tight">Timeline</span>
         <PrimerTimeline.Break className="border-t-0 dark:bg-black" />
+        <Year of={2025}>
+          <TimelineItem
+            badge="✈️"
+            title="Relocated from San Diego ➡️ The Bay Area"
+            description="After being in San Diego for almost 3 years, I moved to be closer to my team! I'm now living in San Jose, CA, but primarily work out of Cupertino, CA"
+          />
+        </Year>
         <Year of={2022}>
           <TimelineItem
             badge=""
@@ -69,15 +76,15 @@ const TimeLine = () => {
             description="Started working as a full-time front-end Software Engineer for PactSafe."
           />
         </Year>
-        <Year of={2018}>
-          <TimelineItem
-            badge="🎓‍"
-            title="Graduated College"
-            description="Graduated with a Bachelors of Science in Computer Science from Purdue University's IUPUI campus."
-          />
-        </Year>
         {showAllYears && (
           <>
+            <Year of={2018}>
+              <TimelineItem
+                badge="🎓‍"
+                title="Graduated College"
+                description="Graduated with a Bachelors of Science in Computer Science from Purdue University."
+              />
+            </Year>
             <Year of={2004}>
               <TimelineItem
                 badge={'🧑🏼‍💻'}

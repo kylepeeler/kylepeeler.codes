@@ -28,9 +28,7 @@ const Footer: React.FC = () => (
         </Link>
       </div>
       <div className="flex flex-col space-y-4">
-        <ExternalLink href="https://twitter.com/_kylepeeler">
-          Twitter
-        </ExternalLink>
+        <ExternalLink href="https://twitter.com/_kylepeeler">X</ExternalLink>
         <ExternalLink href="https://github.com/kylepeeler">GitHub</ExternalLink>
         <ExternalLink href="https://linkedin.com/in/kylepeeler">
           LinkedIn
@@ -40,9 +38,6 @@ const Footer: React.FC = () => (
         <Link href="/uses">
           <a className="text-gray-500 hover:text-gray-600 transition">Uses</a>
         </Link>
-        <ExternalLink href="https://kylepeeler.io/resume.pdf">
-          Resume
-        </ExternalLink>
       </div>
     </div>
   </footer>
