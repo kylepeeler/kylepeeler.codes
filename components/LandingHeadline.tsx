@@ -21,8 +21,8 @@ const LandingHeadline = () => {
         </a>{' '}
         team.
         <br />
-        <br />I love building intuitive and beautiful user experiences for the
-        web, and helping to teach other engineers to learn and grow along the
+        <br />I love building intuitive and beautiful user experiences for
+        others, and helping to teach other engineers to learn and grow along the
         way. Welcome to my playground!
       </span>
     </div>

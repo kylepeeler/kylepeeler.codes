@@ -82,7 +82,7 @@ const TimeLine = () => {
               <TimelineItem
                 badge="🎓‍"
                 title="Graduated College"
-                description="Graduated with a Bachelors of Science in Computer Science from Purdue University."
+                description="Graduated with a Bachelor's of Science in Computer Science from Purdue University."
               />
             </Year>
             <Year of={2004}>
