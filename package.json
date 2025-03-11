@@ -1,15 +1,18 @@
 {
   "name": "kylepeeler.codes",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": {
     "name": "Kyle Peeler",
-    "email": "kylepeeler@hey.com",
+    "email": "me@kylepeeler.com",
     "url": "https://kylepeeler.codes"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kylepeeler/kylepeeler.codes.git"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   },
   "scripts": {
     "dev": "next dev",
