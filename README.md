@@ -11,6 +11,8 @@
   </a>
 </p>
 
+Node Version: v22 (latest LTS @ time of update)
+
 ## > ✨➡️[Check it out here](https://kylepeeler.codes)
 
 > My personal slice of the internet, this website serves as a portfolio & platform for my work and related (occasional) ramblings.
