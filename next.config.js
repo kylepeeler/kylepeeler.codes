@@ -1,6 +1,6 @@
 const { withContentlayer } = require('next-contentlayer');
 
-module.exports = withContentlayer()({
+module.exports = withContentlayer({
   experimental: {
     esmExternals: true
   }
