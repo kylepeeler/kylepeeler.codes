@@ -6,7 +6,7 @@ export default {
   component: Timeline
 } as Meta;
 
-const Template: Story<unknown> = (args) => <Timeline {...args} />;
+const Template: Story<Record<string, never>> = () => <Timeline />;
 
 export const TimelineStory = Template.bind({});
 TimelineStory.args = {};

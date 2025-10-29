@@ -1,7 +1,7 @@
 import React from 'react';
 import NextLink from 'next/link';
 import Date from '../components/Date';
-import type { Blog } from '.contentlayer/types';
+import type { Blog } from 'contentlayer/generated';
 
 export type LatestBlogPostType = Pick<
   Blog,

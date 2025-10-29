@@ -1,4 +1,4 @@
-import { allBlogs } from '.contentlayer/data';
+import { allBlogs } from 'contentlayer/generated';
 import Container from '../components/Container';
 import pick from 'lodash/pick';
 import { BlogPost, LatestBlogPostsType } from '../components/LatestBlogPosts';

@@ -1,24 +1,17 @@
-import { useMemo } from 'react';
 import { GetStaticProps } from 'next';
-import { getMDXComponent } from 'mdx-bundler/client';
-import { allPages } from '.contentlayer/data';
-import { Page } from '.contentlayer/types';
-import components from '../components/MDXComponents';
+import { allPages, Page } from 'contentlayer/generated';
 import Container from '../components/Container';
 
 const Uses = ({ uses }: { uses: Page }) => {
-  const UsesComponent = useMemo(
-    () => getMDXComponent(uses.body.code),
-    [uses.body.code]
-  );
   return (
     <Container
       title="What I Use"
       subtitle="Here is the gear I use to code, browse the internet, and listen to music."
     >
-      <div className="prose dark:prose-dark max-w-none">
-        <UsesComponent components={components} />
-      </div>
+      <div 
+        className="prose dark:prose-dark max-w-none"
+        dangerouslySetInnerHTML={{ __html: uses.body.html }}
+      />
     </Container>
   );
 };
