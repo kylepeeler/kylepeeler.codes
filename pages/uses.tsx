@@ -8,7 +8,7 @@ const Uses = ({ uses }: { uses: Page }) => {
       title="What I Use"
       subtitle="Here is the gear I use to code, browse the internet, and listen to music."
     >
-      <div 
+      <div
         className="prose dark:prose-dark max-w-none"
         dangerouslySetInnerHTML={{ __html: uses.body.html }}
       />

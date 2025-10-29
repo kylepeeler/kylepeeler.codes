@@ -21,7 +21,13 @@ const TimelineItem = ({
   return (
     <div className="flex gap-4 ml-6 mb-4">
       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-        <div className={badgeColor === 'orange' ? `text-orange-600` : 'text-gray-700 dark:text-white'}>
+        <div
+          className={
+            badgeColor === 'orange'
+              ? `text-orange-600`
+              : 'text-gray-700 dark:text-white'
+          }
+        >
           {badge}
         </div>
       </div>
@@ -38,7 +44,9 @@ const TimeLine = () => {
   return (
     <div className="text-gray-700 space-y-12 dark:text-white">
       <div className="space-y-4">
-        <span className="mb-2 text-3xl font-bold tracking-tight block">Timeline</span>
+        <span className="mb-2 text-3xl font-bold tracking-tight block">
+          Timeline
+        </span>
         <hr className="border-gray-300 dark:border-gray-700" />
         <Year of={2022}>
           <TimelineItem

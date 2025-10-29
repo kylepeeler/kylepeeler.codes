@@ -23,7 +23,7 @@ export default function Post({ post }: { post: Blog }) {
           <Date dateString={post.publishedAt} /> · {post.readingTime.text}
         </div>
         <br />
-        <div 
+        <div
           className="prose dark:prose-dark dark:text-white"
           dangerouslySetInnerHTML={{ __html: post.body.html }}
         />

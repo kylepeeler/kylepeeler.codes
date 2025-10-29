@@ -12,8 +12,8 @@
     "url": "git+https://github.com/kylepeeler/kylepeeler.codes.git"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
