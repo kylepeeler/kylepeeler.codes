@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Timeline as PrimerTimeline } from '@primer/react';
 
 const Year = ({ of, children }: { of: number; children: React.ReactNode }) => (
   <>
@@ -19,23 +20,18 @@ const TimelineItem = ({
   description: string;
 }) => {
   return (
-    <div className="flex gap-4 ml-6 mb-4">
-      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-        <div
-          className={
-            badgeColor === 'orange'
-              ? `text-orange-600`
-              : 'text-gray-700 dark:text-white'
-          }
-        >
+    <PrimerTimeline.Item>
+      <PrimerTimeline.Badge>
+        {/* Quick hack because we can't use string interpolation for tailwind classes - https://tailwindcss.com/docs/content-configuration#class-detection-in-depth */}
+        <div className={badgeColor === 'orange' ? `text-orange-600` : null}>
           {badge}
         </div>
-      </div>
-      <div className="flex-1">
+      </PrimerTimeline.Badge>
+      <PrimerTimeline.Body>
         <div className="font-bold text-gray-700 dark:text-white">{title}</div>
         <div className="text-gray-500 dark:text-white">{description}</div>
-      </div>
-    </div>
+      </PrimerTimeline.Body>
+    </PrimerTimeline.Item>
   );
 };
 
@@ -43,11 +39,9 @@ const TimeLine = () => {
   const [showAllYears, setShowAllYears] = useState(false);
   return (
     <div className="text-gray-700 space-y-12 dark:text-white">
-      <div className="space-y-4">
-        <span className="mb-2 text-3xl font-bold tracking-tight block">
-          Timeline
-        </span>
-        <hr className="border-gray-300 dark:border-gray-700" />
+      <PrimerTimeline>
+        <span className="mb-2 text-3xl font-bold tracking-tight">Timeline</span>
+        <PrimerTimeline.Break className="border-t-0 dark:bg-black" />
         <Year of={2022}>
           <TimelineItem
             badge=""
@@ -100,7 +94,7 @@ const TimeLine = () => {
             </Year>
           </>
         )}
-      </div>
+      </PrimerTimeline>
       <button
         className="my-4 mx-auto font-medium dark:bg-black"
         // rightIcon={!showAllYears ? 'chevron-down' : 'chevron-up'}

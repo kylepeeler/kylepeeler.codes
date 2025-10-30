@@ -19,7 +19,7 @@
     "lint:fix": "eslint . --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "postinstall": "contentlayer build"
+    "postinstall": "contentlayer build || true"
   },
   "husky": {
     "hooks": {
@@ -38,6 +38,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@octokit/core": "^3.5.1",
+    "@primer/react": "^38.0.0",
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.20",
     "classnames": "^2.5.1",

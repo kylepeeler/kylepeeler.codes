@@ -2,4 +2,6 @@ const { createContentlayerPlugin } = require('next-contentlayer');
 
 const withContentlayer = createContentlayerPlugin();
 
-module.exports = withContentlayer({});
+module.exports = withContentlayer({
+  transpilePackages: ['@primer/react']
+});
