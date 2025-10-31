@@ -6,7 +6,7 @@ const Uses = ({ uses }: { uses: Page }) => {
   return (
     <Container
       title="What I Use"
-      subtitle="Here is the gear I use to code, browse the internet, and listen to music."
+      subtitle="Here is some of the gear I use to code, browse the internet, and listen to music."
     >
       <div
         className="prose dark:prose-dark max-w-none"

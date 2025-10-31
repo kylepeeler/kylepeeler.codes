@@ -16,20 +16,18 @@ export const BlogPost = ({ post }: { post: LatestBlogPostType }) => {
   const { slug, title, publishedAt, description, readingTime } = post;
 
   return (
-    <NextLink href={`/blog/${slug}`} passHref>
-      <a className="w-full">
-        <div className="mb-8 w-full">
-          <div className="flex flex-col justify-between">
-            <h3 className="text-lg mg:text-xl font-bold w-full text-gray-600 dark:text-white">
-              {title}
-            </h3>
-            <p className="text-gray-500 dark:text-white">{description}</p>
-            <span className="text-gray-500 dark:text-white font-light text-xs">
-              <Date dateString={publishedAt} /> · {readingTime.text}
-            </span>
-          </div>
+    <NextLink href={`/blog/${slug}`} className="w-full">
+      <div className="mb-8 w-full">
+        <div className="flex flex-col justify-between">
+          <h3 className="text-lg mg:text-xl font-bold w-full text-gray-600 dark:text-white">
+            {title}
+          </h3>
+          <p className="text-gray-500 dark:text-white">{description}</p>
+          <span className="text-gray-500 dark:text-white font-light text-xs">
+            <Date dateString={publishedAt} /> · {readingTime.text}
+          </span>
         </div>
-      </a>
+      </div>
     </NextLink>
   );
 };
@@ -43,13 +41,10 @@ const LatestBlogPosts = ({ posts }: LatestBlogPostsType) => {
       {posts?.slice(0, 3).map((post) => (
         <BlogPost post={post} key={post.slug} />
       ))}
-
-      <NextLink href={`/blog`} passHref>
-        <a>
-          <button className="mt-3 text-gray-700 dark:text-white">
-            View All Posts →
-          </button>
-        </a>
+      <NextLink href={`/blog`}>
+        <button className="mt-3 text-gray-700 dark:text-white">
+          View All Posts →
+        </button>
       </NextLink>
     </div>
   );

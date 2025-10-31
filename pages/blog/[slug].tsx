@@ -11,8 +11,8 @@ export default function Post({ post }: { post: Blog }) {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <Link href="/blog">
-        <a className="text-sm mt-3 text-gray-700 dark:text-white">← Go Back</a>
+      <Link href="/blog" className="text-sm mt-3 text-gray-700 dark:text-white">
+        ← Go Back
       </Link>
       <br />
       <article>
