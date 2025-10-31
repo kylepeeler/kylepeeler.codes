@@ -39,8 +39,8 @@ const TimeLine = () => {
   const [showAllYears, setShowAllYears] = useState(false);
   return (
     <div className="text-gray-700 space-y-12 dark:text-white">
-      <PrimerTimeline>
-        <span className="mb-2 text-3xl font-bold tracking-tight">Timeline</span>
+      <span className="mb-2 text-3xl font-bold tracking-tight">Timeline</span>
+      <PrimerTimeline clipSidebar>
         <PrimerTimeline.Break className="border-t-0 dark:bg-black" />
         <Year of={2022}>
           <TimelineItem
