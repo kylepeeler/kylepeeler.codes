@@ -245,16 +245,36 @@ const TetrisGame: React.FC = () => {
     ) {
       dropDistance++;
     }
-    setCurrentPiece({
+    const droppedPiece = {
       ...currentPiece,
       position: {
         ...currentPiece.position,
         y: currentPiece.position.y + dropDistance
       }
-    });
-    // Immediately lock the piece
-    setTimeout(moveDown, 0);
-  }, [currentPiece, board, gameOver, isPaused, checkCollision, moveDown]);
+    };
+
+    // Immediately merge the piece to the board
+    const mergedBoard = mergePieceToBoard(droppedPiece, board);
+    const { board: clearedBoard, linesCleared } = clearLines(mergedBoard);
+    setBoard(clearedBoard);
+    setScore((prev) => prev + linesCleared * 100);
+
+    const newPiece = createNewPiece();
+    if (checkCollision(newPiece, clearedBoard)) {
+      setGameOver(true);
+    } else {
+      setCurrentPiece(newPiece);
+    }
+  }, [
+    currentPiece,
+    board,
+    gameOver,
+    isPaused,
+    checkCollision,
+    mergePieceToBoard,
+    clearLines,
+    createNewPiece
+  ]);
 
   const resetGame = useCallback(() => {
     setBoard(createEmptyBoard());
@@ -303,17 +323,21 @@ const TetrisGame: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [moveLeft, moveRight, moveDown, rotate, hardDrop, gameOver]);
 
+  // Initialize the first piece only once on mount
   useEffect(() => {
     if (!currentPiece) {
       setCurrentPiece(createNewPiece());
     }
-  }, [currentPiece, createNewPiece]);
+  }, []); // Only run on mount
 
+  // Game loop - use ref to avoid recreating interval
   useEffect(() => {
+    const tick = () => {
+      moveDown();
+    };
+
     if (!gameOver && !isPaused && currentPiece) {
-      gameLoopRef.current = setInterval(() => {
-        moveDown();
-      }, 1000);
+      gameLoopRef.current = setInterval(tick, 1000);
 
       return () => {
         if (gameLoopRef.current) {
@@ -321,6 +345,7 @@ const TetrisGame: React.FC = () => {
         }
       };
     }
+    return undefined;
   }, [gameOver, isPaused, currentPiece, moveDown]);
 
   const renderBoard = () => {
