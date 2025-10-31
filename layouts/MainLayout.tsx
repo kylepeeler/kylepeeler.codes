@@ -49,6 +49,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <NavItem name="About" href="/about" />
             <NavItem name="Blog" href="/blog" />
             <NavItem name="Uses" href="/uses" />
+            <NavItem name="Tetris" href="/tetris" />
             {isMounted && (
               <DarkModeToggle
                 checked={resolvedTheme === 'dark'}
