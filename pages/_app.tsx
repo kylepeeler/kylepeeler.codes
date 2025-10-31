@@ -2,6 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
+import { ThemeProvider as PrimerThemeProvider } from '@primer/react';
 import MainLayout from '../layouts/MainLayout';
 import '../styles/globals.css';
 
@@ -28,10 +29,12 @@ const GlobalHeader = () => (
 const App = ({ Component, pageProps }: AppProps): React.ReactNode => (
   <>
     <GlobalHeader />
-    <ThemeProvider attribute="class">
-      <MainLayout>
-        <Component {...pageProps} />
-      </MainLayout>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <PrimerThemeProvider colorMode="auto">
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </PrimerThemeProvider>
     </ThemeProvider>
   </>
 );

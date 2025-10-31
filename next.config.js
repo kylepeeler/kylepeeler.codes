@@ -1,7 +1,7 @@
-const { withContentlayer } = require('next-contentlayer');
+const { createContentlayerPlugin } = require('next-contentlayer');
 
-module.exports = withContentlayer()({
-  experimental: {
-    esmExternals: true
-  }
+const withContentlayer = createContentlayerPlugin();
+
+module.exports = withContentlayer({
+  transpilePackages: ['@primer/react']
 });

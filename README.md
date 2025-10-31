@@ -27,12 +27,6 @@ npm install
 npm run dev
 ```
 
-## Run tests
-
-```sh
-npm run test
-```
-
 ## Built using
 
 - Next.js
@@ -46,7 +40,7 @@ npm run test
 👤 **Kyle Peeler**
 
 - Website: <https://kylepeeler.codes>
-- Twitter: [@\_kylepeeler](https://twitter.com/_kylepeeler)
+- X: [@\_kylepeeler](https://x.com/_kylepeeler)
 - GitHub: [@kylepeeler](https://github.com/kylepeeler)
 - LinkedIn: [@kylepeeler](https://linkedin.com/in/kylepeeler)
 
@@ -56,5 +50,5 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2020 [Kyle Peeler](https://github.com/kylepeeler).<br />
+Copyright © 2025 [Kyle Peeler](https://github.com/kylepeeler).<br />
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.

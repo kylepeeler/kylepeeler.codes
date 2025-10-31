@@ -4,7 +4,7 @@ import LatestBlogPosts, {
 } from '../components/LatestBlogPosts';
 import Projects from '../components/Projects';
 import Timeline from '../components/Timeline';
-import { allBlogs } from '.contentlayer/data';
+import { allBlogs } from 'contentlayer/generated';
 
 export async function getStaticProps() {
   const posts = allBlogs

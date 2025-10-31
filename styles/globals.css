@@ -2,7 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@variants group-hover, hover, focus {
+/* Primer CSS variable fallbacks (avoid BaseStyles font resets) */
+:root {
+  /* Tailwind gray-200 as a reasonable light-mode muted border */
+  --borderColor-muted: #e5e7eb;
+  /* Background for Primer Timeline.Badge in light mode */
+  --timelineBadge-bgColor: #f3f4f6; /* gray-100 */
+}
+
+html.dark {
+  /* Tailwind gray-700 as a reasonable dark-mode muted border */
+  --borderColor-muted: #374151;
+  /* Background for Primer Timeline.Badge in dark mode */
+  --timelineBadge-bgColor: #1f2937; /* gray-800 */
+}
+
+@layer utilities {
   .text-filter-shadow-thin {
     -webkit-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
     filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
@@ -58,8 +73,8 @@
     backdrop-filter: saturate(180%) blur(20px);
 
     /* @HACK: Setting this to negative HeaderLine's height makes position: sticky work smoother */
-    margin-top: -10px;
-    transition: background-color 0.1 ease-in-out;
+    margin-top: -14px;
+    transition: background-color 0.1s ease-in-out;
   }
 
   #__next {

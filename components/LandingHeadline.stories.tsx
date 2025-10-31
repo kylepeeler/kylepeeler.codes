@@ -6,6 +6,6 @@ export default {
   component: LandingHeadline
 } as Meta;
 
-const Template: Story<unknown> = (args) => <LandingHeadline {...args} />;
+const Template: Story<Record<string, never>> = () => <LandingHeadline />;
 
 export const LandingHeadlineStory = Template.bind({});

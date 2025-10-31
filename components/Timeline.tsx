@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Timeline as PrimerTimeline } from '@primer/components';
+import { Timeline as PrimerTimeline } from '@primer/react';
 
 const Year = ({ of, children }: { of: number; children: React.ReactNode }) => (
   <>
     {children}
-    <span className="inline px-1 mb-2 text-xl font-bold">{of}</span>
+    <span className="inline px-1 text-xl font-bold">{of}</span>
   </>
 );
 
@@ -20,7 +20,7 @@ const TimelineItem = ({
   description: string;
 }) => {
   return (
-    <PrimerTimeline.Item ml={24}>
+    <PrimerTimeline.Item style={{ marginLeft: '24px' }}>
       <PrimerTimeline.Badge>
         {/* Quick hack because we can't use string interpolation for tailwind classes - https://tailwindcss.com/docs/content-configuration#class-detection-in-depth */}
         <div className={badgeColor === 'orange' ? `text-orange-600` : null}>
@@ -39,9 +39,15 @@ const TimeLine = () => {
   const [showAllYears, setShowAllYears] = useState(false);
   return (
     <div className="text-gray-700 space-y-12 dark:text-white">
-      <PrimerTimeline>
-        <span className="mb-2 text-3xl font-bold tracking-tight">Timeline</span>
-        <PrimerTimeline.Break className="border-t-0 dark:bg-black" />
+      <span className="mb-2 text-3xl font-bold tracking-tight">Timeline</span>
+      <PrimerTimeline clipSidebar={true}>
+        <Year of={2025}>
+          <TimelineItem
+            badge="✈️"
+            title="Relocated from San Diego ➡️ The Bay Area"
+            description="After being in San Diego for almost 3 years, I moved to be closer to my team! I'm now living in San Jose, CA, but primarily work out of Cupertino, CA."
+          />
+        </Year>
         <Year of={2022}>
           <TimelineItem
             badge=""
@@ -73,7 +79,7 @@ const TimeLine = () => {
           <TimelineItem
             badge="🎓‍"
             title="Graduated College"
-            description="Graduated with a Bachelors of Science in Computer Science from Purdue University's IUPUI campus."
+            description="Graduated with a Bachelors of Science in Computer Science from Purdue University."
           />
         </Year>
         {showAllYears && (

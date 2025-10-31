@@ -4,7 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   important: true,
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx'], // paths to all of my pages and components mso Tailwind can tree-shake unused styles in production builds
+  content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx'], // paths to all of my pages and components mso Tailwind can tree-shake unused styles in production builds
   darkMode: 'class',
   theme: {
     colors: {
@@ -12,7 +12,7 @@ module.exports = {
       current: 'currentColor',
       black: colors.black,
       white: colors.white,
-      gray: colors.coolGray,
+      gray: colors.gray,
       red: colors.red,
       orange: colors.orange,
       yellow: colors.amber,
@@ -113,14 +113,6 @@ module.exports = {
           }
         }
       })
-    }
-  },
-  variants: {
-    typography: ['dark'],
-    extend: {
-      animation: ['hover', 'focus'],
-      ringWidth: ['hover'],
-      ringColor: ['hover']
     }
   },
   plugins: [require('@tailwindcss/typography')]
