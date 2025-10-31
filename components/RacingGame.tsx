@@ -7,6 +7,12 @@ interface GameObject {
   height: number;
 }
 
+// Game constants
+const LANE_POSITIONS = [75, 135, 195, 255, 315];
+const OBSTACLE_SPAWN_INTERVAL = 60;
+const SPEED_INCREASE_INTERVAL = 100;
+const MAX_SPEED = 8;
+
 const RacingGame = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [gameStarted, setGameStarted] = useState(false);
@@ -135,11 +141,10 @@ const RacingGame = () => {
 
       // Spawn obstacles
       state.obstacleSpawnTimer++;
-      if (state.obstacleSpawnTimer > 60) {
-        const lanes = [75, 135, 195, 255, 315];
-        const laneIndex = Math.floor(Math.random() * lanes.length);
+      if (state.obstacleSpawnTimer > OBSTACLE_SPAWN_INTERVAL) {
+        const laneIndex = Math.floor(Math.random() * LANE_POSITIONS.length);
         state.obstacles.push({
-          x: lanes[laneIndex] - 15,
+          x: LANE_POSITIONS[laneIndex] - 15,
           y: -50,
           width: 30,
           height: 50
@@ -180,7 +185,10 @@ const RacingGame = () => {
           setScore(state.score);
 
           // Increase speed gradually
-          if (state.score % 100 === 0 && state.speed < 8) {
+          if (
+            state.score % SPEED_INCREASE_INTERVAL === 0 &&
+            state.speed < MAX_SPEED
+          ) {
             state.speed += 0.5;
           }
         }
