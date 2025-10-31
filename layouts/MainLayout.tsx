@@ -26,7 +26,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   // Done to avoid a hydration mismatch because we cannot know the theme on the server
   // See https://www.npmjs.com/package/next-themes#avoid-hydration-mismatch
   const [isMounted, setIsMounted] = useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => setIsMounted(true), []);
 
