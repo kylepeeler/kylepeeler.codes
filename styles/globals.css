@@ -74,7 +74,7 @@ html.dark {
 
     /* @HACK: Setting this to negative HeaderLine's height makes position: sticky work smoother */
     margin-top: -14px;
-    transition: background-color 0.1 ease-in-out;
+    transition: background-color 0.1s ease-in-out;
   }
 
   #__next {
