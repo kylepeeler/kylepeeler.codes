@@ -2,6 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
+import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider as PrimerThemeProvider } from '@primer/react';
 import MainLayout from '../layouts/MainLayout';
 import '../styles/globals.css';
@@ -36,6 +37,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactNode => (
         </MainLayout>
       </PrimerThemeProvider>
     </ThemeProvider>
+    <Analytics />
   </>
 );
 
