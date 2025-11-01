@@ -25,7 +25,10 @@ const RacingGame = () => {
     score: 0,
     speed: 3,
     obstacleSpawnTimer: 0,
-    keysPressed: {} as { [key: string]: boolean }
+    keysPressed: {} as { [key: string]: boolean },
+    touchStartX: 0,
+    touchCurrentX: 0,
+    isTouching: false
   });
 
   useEffect(() => {
@@ -42,7 +45,10 @@ const RacingGame = () => {
       score: 0,
       speed: 3,
       obstacleSpawnTimer: 0,
-      keysPressed: {}
+      keysPressed: {},
+      touchStartX: 0,
+      touchCurrentX: 0,
+      isTouching: false
     };
     setScore(0);
     setGameOver(false);
@@ -81,8 +87,33 @@ const RacingGame = () => {
       }
     };
 
+    const handleTouchStart = (e: TouchEvent) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      gameStateRef.current.touchStartX = touch.clientX;
+      gameStateRef.current.touchCurrentX = touch.clientX;
+      gameStateRef.current.isTouching = true;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
+      if (!gameStateRef.current.isTouching) return;
+      const touch = e.touches[0];
+      gameStateRef.current.touchCurrentX = touch.clientX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      e.preventDefault();
+      gameStateRef.current.isTouching = false;
+      gameStateRef.current.touchStartX = 0;
+      gameStateRef.current.touchCurrentX = 0;
+    };
+
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
+    canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+    canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
 
     let animationFrameId: number;
 
@@ -115,12 +146,28 @@ const RacingGame = () => {
       ctx.lineTo(350, canvas.height);
       ctx.stroke();
 
-      // Update player position
+      // Update player position (keyboard)
       if (state.keysPressed['ArrowLeft']) {
         state.player.x = Math.max(55, state.player.x - 5);
       }
       if (state.keysPressed['ArrowRight']) {
         state.player.x = Math.min(315, state.player.x + 5);
+      }
+
+      // Update player position (touch/swipe)
+      if (state.isTouching) {
+        const swipeDistance = state.touchCurrentX - state.touchStartX;
+        const swipeSpeed = 8; // Adjust sensitivity
+        if (Math.abs(swipeDistance) > 5) {
+          // Threshold to avoid jitter
+          if (swipeDistance < 0) {
+            // Swiping left
+            state.player.x = Math.max(55, state.player.x - swipeSpeed);
+          } else {
+            // Swiping right
+            state.player.x = Math.min(315, state.player.x + swipeSpeed);
+          }
+        }
       }
 
       // Draw player car
@@ -202,6 +249,9 @@ const RacingGame = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
+      canvas.removeEventListener('touchstart', handleTouchStart);
+      canvas.removeEventListener('touchmove', handleTouchMove);
+      canvas.removeEventListener('touchend', handleTouchEnd);
       cancelAnimationFrame(animationFrameId);
     };
   }, [gameStarted, gameOver, highScore]);
@@ -213,7 +263,7 @@ const RacingGame = () => {
           🏎️ Racing Game
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-2">
-          Use ← → arrow keys to dodge obstacles!
+          Use ← → arrow keys or swipe left/right to dodge obstacles!
         </p>
         <div className="flex justify-center gap-8 text-lg font-semibold">
           <span className="text-gray-900 dark:text-white">
@@ -231,6 +281,7 @@ const RacingGame = () => {
           width={400}
           height={600}
           className="border-4 border-gray-700 dark:border-gray-300 rounded-lg shadow-2xl"
+          style={{ touchAction: 'none' }}
         />
 
         {!gameStarted && !gameOver && (
